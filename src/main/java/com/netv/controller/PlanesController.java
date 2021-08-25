@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.netv.model.Planes;
-import com.netv.repositorio.IrepoPlanes;
+import com.netv.repositorio.IRepoPlanes;
 
 @RestController
 @RequestMapping("/netv")
 public class PlanesController {
 
 	@Autowired
-	IrepoPlanes repo;
+	IRepoPlanes repo;
 
 	@GetMapping("/planes")
 	public List<Planes> ObtenerPlanes() {

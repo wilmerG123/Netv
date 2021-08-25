@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.netv.model.Usuario;
-import com.netv.repositorio.IRepositorio;
+import com.netv.repositorio.IRepoUsuarios;
 
 @RestController
 @RequestMapping("/netv")
@@ -18,7 +18,7 @@ public class UsuarioController {
 
 
     @Autowired
-    IRepositorio repo;
+    IRepoUsuarios repo;
 
     @GetMapping("/usuario")
     public List<Usuario>ObtenerUsuarios(){
