@@ -17,6 +17,7 @@ public class Ciudad {
     private Long id_ciudad;
 	@Column(name="Nombre")
 	private String nombre;
+
 	public Long getId_ciudad() {
 		return id_ciudad;
 	}
