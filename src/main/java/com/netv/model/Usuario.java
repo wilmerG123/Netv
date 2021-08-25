@@ -8,116 +8,117 @@ import javax.persistence.*;
 @Table(name = "Usuario")
 public class Usuario {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(unique = true, nullable = false, name = "id_usuario")
-	private Long id;
-	@ManyToOne
-	@JoinColumn(name = "id_tipo")
-	private TipoIdentificacion tipo;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false, name = "id_usuario")
+    private Long id;
+    @ManyToOne
+    @JoinColumn(name = "id_tipo")
+    private TipoIdentificacion tipo;
 
-	@Column(name = "identificacion")
-	private String identificacion;
+    @Column(name = "identificacion")
+    private String identificacion;
 
-	@Column(name = "Nombres")
-	private String nombres;
+    @Column(name = "Nombres")
+    private String nombres;
 
-	@Column(name = "Apellidos")
-	private String apellidos;
+    @Column(name = "Apellidos")
+    private String apellidos;
 
-	@Column(name = "Telefono_Celular")
-	private String telefono_celular;
+    @Column(name = "Telefono_Celular")
+    private String telefono_celular;
 
-	@Column(name = "Direccion")
-	private String direccion;
+    @Column(name = "Direccion")
+    private String direccion;
 
-	@Column(name = "Correo")
-	private String correo;
+    @Column(name = "Correo")
+    private String correo;
 
-	@ManyToOne
-	@JoinColumn(name = "id_ciudad")
-	private Ciudad ciudad;
+    @ManyToOne
+    @JoinColumn(name = "id_ciudad")
+    private Ciudad ciudad;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
-	private List<Contrato> contratos;
+    @Transient
+    private List<Contrato> contratos;
 
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public TipoIdentificacion getTipo() {
-		return tipo;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setTipo(TipoIdentificacion tipo) {
-		this.tipo = tipo;
-	}
+    public TipoIdentificacion getTipo() {
+        return tipo;
+    }
 
-	public String getIdentificacion() {
-		return identificacion;
-	}
+    public void setTipo(TipoIdentificacion tipo) {
+        this.tipo = tipo;
+    }
 
-	public void setIdentificacion(String identificacion) {
-		this.identificacion = identificacion;
-	}
+    public String getIdentificacion() {
+        return identificacion;
+    }
 
-	public String getNombres() {
-		return nombres;
-	}
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+    }
 
-	public void setNombres(String nombres) {
-		this.nombres = nombres;
-	}
+    public String getNombres() {
+        return nombres;
+    }
 
-	public String getApellidos() {
-		return apellidos;
-	}
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
 
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
+    public String getApellidos() {
+        return apellidos;
+    }
 
-	public String getTelefono_celular() {
-		return telefono_celular;
-	}
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
 
-	public void setTelefono_celular(String telefono_celular) {
-		this.telefono_celular = telefono_celular;
-	}
+    public String getTelefono_celular() {
+        return telefono_celular;
+    }
 
-	public String getDireccion() {
-		return direccion;
-	}
+    public void setTelefono_celular(String telefono_celular) {
+        this.telefono_celular = telefono_celular;
+    }
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
+    public String getDireccion() {
+        return direccion;
+    }
 
-	public String getCorreo() {
-		return correo;
-	}
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
+    public String getCorreo() {
+        return correo;
+    }
 
-	public Ciudad getCiudad() {
-		return ciudad;
-	}
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 
-	public void setCiudad(Ciudad ciudad) {
-		this.ciudad = ciudad;
-	}
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
 
-	public List<Contrato> getContratos() {
-		return contratos;
-	}
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
+    }
 
-	public void setContratos(List<Contrato> contratos) {
-		this.contratos = contratos;
-	}
+    public List<Contrato> getContratos() {
+        return contratos;
+    }
+
+    public void setContratos(List<Contrato> contratos) {
+        this.contratos = contratos;
+    }
 }
