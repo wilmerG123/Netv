@@ -11,6 +11,7 @@ public class Contrato {
     @Column(nullable = false, name = "numeroContrato")
     private Long numeroContrato;
 
+
     @ManyToOne
     @JoinColumn(name = "id_plan")
     private Planes id_plan;
@@ -24,6 +25,7 @@ public class Contrato {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
+
 
 
     public Long getNumeroContrato() {
@@ -65,4 +67,8 @@ public class Contrato {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+
+
+
+
 }

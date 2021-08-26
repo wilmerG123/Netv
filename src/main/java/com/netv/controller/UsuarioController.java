@@ -38,9 +38,13 @@ public class UsuarioController {
             List<Contrato> contratos = repoC.findByUsuario(usuario);
 
             usuario.setContratos(contratos);
+
+
         }
 
         return usuarioTemporal;
+
+
     }
 
     @PostMapping("/usuario")

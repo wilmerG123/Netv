@@ -1,12 +1,16 @@
 package com.netv.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Usuario")
-public class Usuario {
+
+public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
