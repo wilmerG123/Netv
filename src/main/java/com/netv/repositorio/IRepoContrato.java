@@ -1,17 +1,19 @@
 package com.netv.repositorio;
 
-import com.netv.model.Contrato;
-import com.netv.model.Usuario;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.netv.model.Contrato;
 
 @Repository
-public interface IRepoContrato extends JpaRepository<Contrato,Long> {
+@Transactional(readOnly = true)
+public interface IRepoContrato extends JpaRepository<Contrato, Long> {
 
-    List<Contrato> findByUsuario(Usuario usuario);
-
+	@Query(value = "select c from Contrato c join fetch c.id_plan")
+	public List<Contrato> findByUsuario(@Param("idUsuario") Long idUsuario);
 }
