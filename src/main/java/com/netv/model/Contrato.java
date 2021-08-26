@@ -1,74 +1,77 @@
 package com.netv.model;
 
-import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "Contrato")
 public class Contrato {
 
-    @Id
-    @Column(nullable = false, name = "numeroContrato")
-    private Long numeroContrato;
+	@Id
+	@Column(nullable = false, name = "numeroContrato")
+	private Long numeroContrato;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_plan")
+	private Planes id_plan;
 
-    @ManyToOne
-    @JoinColumn(name = "id_plan")
-    private Planes id_plan;
+	@Column(name = "FechafirmadoContrato")
+	private Date fechaFirmado;
 
-    @Column(name = "FechafirmadoContrato")
-    private Date fechaFirmado;
+	@Column(name = "fechaRenovacionPlan")
+	private Date fechaRenovacionPlan;
 
-    @Column(name = "fechaRenovacionPlan")
-    private Date fechaRenovacionPlan;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+	public Long getNumeroContrato() {
+		return numeroContrato;
+	}
 
+	public void setNumeroContrato(Long numeroContrato) {
+		this.numeroContrato = numeroContrato;
+	}
 
+	public Planes getId_plan() {
+		return id_plan;
+	}
 
-    public Long getNumeroContrato() {
-        return numeroContrato;
-    }
+	public void setId_plan(Planes id_plan) {
+		this.id_plan = id_plan;
+	}
 
-    public void setNumeroContrato(Long numeroContrato) {
-        this.numeroContrato = numeroContrato;
-    }
+	public Date getFechaFirmado() {
+		return fechaFirmado;
+	}
 
-    public Planes getId_plan() {
-        return id_plan;
-    }
+	public void setFechaFirmado(Date fechaFirmado) {
+		this.fechaFirmado = fechaFirmado;
+	}
 
-    public void setId_plan(Planes id_plan) {
-        this.id_plan = id_plan;
-    }
+	public Date getFechaRenovacionPlan() {
+		return fechaRenovacionPlan;
+	}
 
-    public Date getFechaFirmado() {
-        return fechaFirmado;
-    }
+	public void setFechaRenovacionPlan(Date fechaRenovacionPlan) {
+		this.fechaRenovacionPlan = fechaRenovacionPlan;
+	}
 
-    public void setFechaFirmado(Date fechaFirmado) {
-        this.fechaFirmado = fechaFirmado;
-    }
+	public Usuario getUsuario() {
+		return usuario;
+	}
 
-    public Date getFechaRenovacionPlan() {
-        return fechaRenovacionPlan;
-    }
-
-    public void setFechaRenovacionPlan(Date fechaRenovacionPlan) {
-        this.fechaRenovacionPlan = fechaRenovacionPlan;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-
-
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 }
