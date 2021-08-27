@@ -14,6 +14,7 @@ import com.netv.model.Contrato;
 @Transactional(readOnly = true)
 public interface IRepoContrato extends JpaRepository<Contrato, Long> {
 
-	@Query(value = "select c from Contrato c join fetch c.id_plan")
+	
+	@Query(value = "select c from Contrato c join fetch c.id_plan where c.usuario.id=:idUsuario")
 	public List<Contrato> findByUsuario(@Param("idUsuario") Long idUsuario);
 }
