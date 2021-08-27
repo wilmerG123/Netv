@@ -10,11 +10,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.netv.DAOs.ContratoDAO;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
 @Entity
 @Table(name = "Contrato")
-public class Contrato {
+public class Contrato extends ContratoDAO {
 
 	@Id
 	@Column(nullable = false, name = "numeroContrato")
@@ -30,9 +35,14 @@ public class Contrato {
 	@Column(name = "fechaRenovacionPlan")
 	private Date fechaRenovacionPlan;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
+
+	public Contrato() {
+		this.usuario = new Usuario();
+		this.id_plan = new Planes();
+	}
 
 	public Long getNumeroContrato() {
 		return numeroContrato;

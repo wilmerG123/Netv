@@ -57,6 +57,8 @@ public class CrearDatosIniciales {
 		usuario.setTelefono_celular("123456");
 		usuario.setTipo(tipoIdentificacion);
 		iRepoUsuarios.save(usuario);
+		
+//		usuario=new Usuario
 
 		Planes planes = new Planes(null, "Plan Premium", "Plan severa chimba");
 		iRepoPlanes.save(planes);
