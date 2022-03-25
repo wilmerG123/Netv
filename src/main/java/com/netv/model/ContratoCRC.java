@@ -1,7 +1,5 @@
 package com.netv.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,28 +9,20 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-@Data
-@AllArgsConstructor
 @Entity
-@Table(name = "Usuario")
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class Usuario {
+@Table(name = "ContratoCRC")
+public class ContratoCRC {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(unique = true, nullable = false, name = "id_usuario")
+	@Column(name = "id_usuario")
 	private Long id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "id_tipo")
-	private TipoIdentificacion tipo;
+	private TipoIdentificacion idTipoIdentificacion;
 
 	@Column(name = "identificacion")
 	private String identificacion;
@@ -49,15 +39,20 @@ public class Usuario {
 	@Column(name = "Direccion")
 	private String direccion;
 
-	@Column(name = "Correo")
-	private String correo;
+	@Column(name = "Email")
+	private String email;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
+	@JoinColumn(name = "id_departamento")
+	private Departamento departamento;
+
+	@ManyToOne
+	@JoinColumn(name = "id_plan")
+	private Plan plan;
+
+	@ManyToOne
 	@JoinColumn(name = "id_ciudad")
 	private Ciudad ciudad;
-
-	@Transient
-	private List<Contrato> contratos;
 
 	public Long getId() {
 		return id;
@@ -67,12 +62,12 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public TipoIdentificacion getTipo() {
-		return tipo;
+	public TipoIdentificacion getIdTipoIdentificacion() {
+		return idTipoIdentificacion;
 	}
 
-	public void setTipo(TipoIdentificacion tipo) {
-		this.tipo = tipo;
+	public void setIdTipoIdentificacion(TipoIdentificacion idTipoIdentificacion) {
+		this.idTipoIdentificacion = idTipoIdentificacion;
 	}
 
 	public String getIdentificacion() {
@@ -115,12 +110,20 @@ public class Usuario {
 		this.direccion = direccion;
 	}
 
-	public String getCorreo() {
-		return correo;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setCorreo(String correo) {
-		this.correo = correo;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
 	}
 
 	public Ciudad getCiudad() {
@@ -131,11 +134,29 @@ public class Usuario {
 		this.ciudad = ciudad;
 	}
 
-	public List<Contrato> getContratos() {
-		return contratos;
+	public Plan getPlan() {
+		return plan;
 	}
 
-	public void setContratos(List<Contrato> contratos) {
-		this.contratos = contratos;
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
+
+	public ContratoCRC() {
+
+	}
+
+	public ContratoCRC(Long id, TipoIdentificacion idTipoIdentificacion, String identificacion, String nombres, String apellidos, String telefono_celular, String direccion, String email, Departamento departamento, Plan plan, Ciudad ciudad) {
+		this.id = id;
+		this.idTipoIdentificacion = idTipoIdentificacion;
+		this.identificacion = identificacion;
+		this.nombres = nombres;
+		this.apellidos = apellidos;
+		this.telefono_celular = telefono_celular;
+		this.direccion = direccion;
+		this.email = email;
+		this.departamento = departamento;
+		this.plan = plan;
+		this.ciudad = ciudad;
 	}
 }

@@ -13,18 +13,18 @@ public class TipoIdentificacion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true, nullable = false, name = "id_tipo")
-	private Long id;
+	private Long IdTipoIdentificacion;
 	@Column(name = "Nombre")
 	private String nombre;
 	@Column(name = "Abreviatura")
 	private String abreviatura;
 
 	public Long getId() {
-		return id;
+		return IdTipoIdentificacion;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.IdTipoIdentificacion = id;
 	}
 
 	public String getNombre() {
@@ -49,7 +49,7 @@ public class TipoIdentificacion {
 
 	public TipoIdentificacion(Long id, String nombre, String abreviatura) {
 		super();
-		this.id = id;
+		this.IdTipoIdentificacion = id;
 		this.nombre = nombre;
 		this.abreviatura = abreviatura;
 	}
