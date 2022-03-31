@@ -16,6 +16,7 @@ import com.netv.repositorio.IRepoContratoCRC;
 
 @RestController
 @RequestMapping("/netv")
+@CrossOrigin("*")
 public class ContratoCRCController {
 
 	@Autowired

@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/netv")
+@CrossOrigin("*")
 public class ControllerCityDptoTipo {
 
     @Autowired
@@ -31,6 +32,12 @@ public class ControllerCityDptoTipo {
 
         return repoCiudad.save(ciudad);
     }
+    @DeleteMapping("/ciudad/{id}")
+    public void borrarCiudad (@PathVariable(name = "id") Long id){
+        repoCiudad.deleteById(id);
+    }
+
+
     @GetMapping("/departamento")
     public List<Departamento> obtenerDepartamentos (){
         return repoDepartamento.findAll();
@@ -40,6 +47,10 @@ public class ControllerCityDptoTipo {
 
         return repoDepartamento.save(departamento);
     }
+    @DeleteMapping("/departamento/{id}")
+    public void borrarDepartamento (@PathVariable(name = "id") Long id){
+        repoDepartamento.deleteById(id);
+    }
     @GetMapping("/tipoIdentificacion")
     public List<TipoIdentificacion> obtenerTiposDeIdentificacion (){
         return repoTipoIdentificacion.findAll();
@@ -48,6 +59,10 @@ public class ControllerCityDptoTipo {
     public TipoIdentificacion guardarTipoDeIdentificacion (@RequestBody TipoIdentificacion tipoIdentificacion) {
 
         return repoTipoIdentificacion.save(tipoIdentificacion);
+    }
+    @DeleteMapping("/tipoIdentificacion/{id}")
+    public void borrarTipoIdentificacion(@PathVariable(name = "id") Long id){
+        repoTipoIdentificacion.deleteById(id);
     }
 
 }

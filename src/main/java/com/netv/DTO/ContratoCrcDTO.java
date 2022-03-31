@@ -7,17 +7,19 @@ import com.netv.model.TipoIdentificacion;
 
 public class ContratoCrcDTO {
 
+    private Long numeroContrato;
+
     private String nombres;
 
     private String apellidos;
 
-    private TipoIdentificacion idTipoIdentificacion;
+    private TipoIdentificacion tipoIdentificacion;
 
     private String identificacion;
 
     private String email;
 
-    private String telefono_celular;
+    private String telefonoCelular;
 
     private String direccion;
 
@@ -29,28 +31,37 @@ public class ContratoCrcDTO {
 
     private Plan plan;
 
-    public String getNombre() {
+
+    public Long getNumeroContrato() {
+        return numeroContrato;
+    }
+
+    public void setNumeroContrato(Long numeroContrato) {
+        this.numeroContrato = numeroContrato;
+    }
+
+    public String getNombres() {
         return nombres;
     }
 
-    public void setNombre(String nombre) {
-        this.nombres = nombre;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
-    public TipoIdentificacion getIdTipoIdentificacion() {
-        return idTipoIdentificacion;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setIdTipoIdentificacion(TipoIdentificacion idTipoIdentificacion) {
-        this.idTipoIdentificacion = idTipoIdentificacion;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
-    public String getTelefono_celular() {
-        return telefono_celular;
+    public TipoIdentificacion getTipoIdentificacion() {
+        return tipoIdentificacion;
     }
 
-    public void setTelefono_celular(String telefono_celular) {
-        this.telefono_celular = telefono_celular;
+    public void setTipoIdentificacion(TipoIdentificacion tipoIdentificacion) {
+        this.tipoIdentificacion = tipoIdentificacion;
     }
 
     public String getIdentificacion() {
@@ -69,12 +80,12 @@ public class ContratoCrcDTO {
         this.email = email;
     }
 
-    public String getCelular() {
-        return telefono_celular;
+    public String getTelefonoCelular() {
+        return telefonoCelular;
     }
 
-    public void setCelular(String celular) {
-        this.telefono_celular = celular;
+    public void setTelefonoCelular(String telefonoCelular) {
+        this.telefonoCelular = telefonoCelular;
     }
 
     public String getDireccion() {
@@ -91,14 +102,6 @@ public class ContratoCrcDTO {
 
     public void setEstrato(String estrato) {
         this.estrato = estrato;
-    }
-
-    public String getNombres() {
-        return nombres;
-    }
-
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
     }
 
     public Departamento getDepartamento() {
@@ -121,15 +124,25 @@ public class ContratoCrcDTO {
         return plan;
     }
 
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
     public void setPlan(Plan plan) {
+        this.plan = plan;
+    }
+
+    public ContratoCrcDTO() {
+    }
+
+    public ContratoCrcDTO(Long numeroContrato, String nombres, String apellidos, TipoIdentificacion tipoIdentificacion, String identificacion, String email, String telefonoCelular, String direccion, String estrato, Departamento departamento, Ciudad ciudad, Plan plan) {
+        this.numeroContrato = numeroContrato;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.tipoIdentificacion = tipoIdentificacion;
+        this.identificacion = identificacion;
+        this.email = email;
+        this.telefonoCelular = telefonoCelular;
+        this.direccion = direccion;
+        this.estrato = estrato;
+        this.departamento = departamento;
+        this.ciudad = ciudad;
         this.plan = plan;
     }
 }
