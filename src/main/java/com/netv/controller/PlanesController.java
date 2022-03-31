@@ -15,6 +15,7 @@ import com.netv.repositorio.IRepoPlanes;
 
 @RestController
 @RequestMapping("/netv")
+@CrossOrigin("*")
 public class PlanesController {
 
 	@Autowired

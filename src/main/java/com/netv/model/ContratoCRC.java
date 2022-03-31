@@ -2,13 +2,14 @@ package com.netv.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.sql.Timestamp;
+import java.util.Date;
 
 
 @Entity
@@ -20,9 +21,12 @@ public class ContratoCRC {
 	@Column(name = "id_usuario")
 	private Long id;
 
+	@Column(name = "numero_contrato")
+	private Long numeroContrato;
+
 	@ManyToOne
 	@JoinColumn(name = "id_tipo")
-	private TipoIdentificacion idTipoIdentificacion;
+	private TipoIdentificacion tipoIdentificacion;
 
 	@Column(name = "identificacion")
 	private String identificacion;
@@ -34,13 +38,16 @@ public class ContratoCRC {
 	private String apellidos;
 
 	@Column(name = "Telefono_Celular")
-	private String telefono_celular;
+	private String telefonoCelular;
 
 	@Column(name = "Direccion")
 	private String direccion;
 
 	@Column(name = "Email")
 	private String email;
+
+	@Column(name = "Estrato")
+	private String Estrato;
 
 	@ManyToOne
 	@JoinColumn(name = "id_departamento")
@@ -54,6 +61,9 @@ public class ContratoCRC {
 	@JoinColumn(name = "id_ciudad")
 	private Ciudad ciudad;
 
+	@Column(name = "fecha_contrato")
+	private Date fechaContrato;
+
 	public Long getId() {
 		return id;
 	}
@@ -62,12 +72,12 @@ public class ContratoCRC {
 		this.id = id;
 	}
 
-	public TipoIdentificacion getIdTipoIdentificacion() {
-		return idTipoIdentificacion;
+	public TipoIdentificacion getTipoIdentificacion() {
+		return tipoIdentificacion;
 	}
 
-	public void setIdTipoIdentificacion(TipoIdentificacion idTipoIdentificacion) {
-		this.idTipoIdentificacion = idTipoIdentificacion;
+	public void setTipoIdentificacion(TipoIdentificacion tipoIdentificacion) {
+		this.tipoIdentificacion = tipoIdentificacion;
 	}
 
 	public String getIdentificacion() {
@@ -94,12 +104,12 @@ public class ContratoCRC {
 		this.apellidos = apellidos;
 	}
 
-	public String getTelefono_celular() {
-		return telefono_celular;
+	public String getTelefonoCelular() {
+		return telefonoCelular;
 	}
 
-	public void setTelefono_celular(String telefono_celular) {
-		this.telefono_celular = telefono_celular;
+	public void setTelefonoCelular(String telefonoCelular) {
+		this.telefonoCelular = telefonoCelular;
 	}
 
 	public String getDireccion() {
@@ -142,21 +152,48 @@ public class ContratoCRC {
 		this.plan = plan;
 	}
 
-	public ContratoCRC() {
-
+	public String getEstrato() {
+		return Estrato;
 	}
 
-	public ContratoCRC(Long id, TipoIdentificacion idTipoIdentificacion, String identificacion, String nombres, String apellidos, String telefono_celular, String direccion, String email, Departamento departamento, Plan plan, Ciudad ciudad) {
+	public void setEstrato(String estrato) {
+		Estrato = estrato;
+	}
+
+	public Long getNumeroContrato() {
+		return numeroContrato;
+	}
+
+	public void setNumeroContrato(Long numeroContrato) {
+		this.numeroContrato = numeroContrato;
+	}
+
+
+	public Date getFechaContrato() {
+		return fechaContrato;
+	}
+
+	public void setFechaContrato(Date fechaContrato) {
+		this.fechaContrato = fechaContrato;
+	}
+
+	public ContratoCRC() {
+	}
+
+	public ContratoCRC(Long id, Long numeroContrato, TipoIdentificacion tipoIdentificacion, String identificacion, String nombres, String apellidos, String telefonoCelular, String direccion, String email, String estrato, Departamento departamento, Plan plan, Ciudad ciudad, Date fechaContrato) {
 		this.id = id;
-		this.idTipoIdentificacion = idTipoIdentificacion;
+		this.numeroContrato = numeroContrato;
+		this.tipoIdentificacion = tipoIdentificacion;
 		this.identificacion = identificacion;
 		this.nombres = nombres;
 		this.apellidos = apellidos;
-		this.telefono_celular = telefono_celular;
+		this.telefonoCelular = telefonoCelular;
 		this.direccion = direccion;
 		this.email = email;
+		Estrato = estrato;
 		this.departamento = departamento;
 		this.plan = plan;
 		this.ciudad = ciudad;
+		this.fechaContrato = fechaContrato;
 	}
 }
