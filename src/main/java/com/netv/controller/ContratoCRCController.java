@@ -3,8 +3,7 @@ package com.netv.controller;
 import java.util.List;
 
 import com.netv.DTO.ContratoCrcDTO;
-import com.netv.DTO.PlanDTO;
-import com.netv.model.Plan;
+
 import com.netv.services.ContratoCRCImplementacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

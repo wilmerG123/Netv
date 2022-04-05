@@ -18,51 +18,26 @@ public class ContratoCRC {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_usuario")
+	@Column(name = "id_contrato")
 	private Long id;
+
+	@ManyToOne
+	@JoinColumn(name = "id_cliente")
+	private Cliente cliente;
 
 	@Column(name = "numero_contrato")
 	private Long numeroContrato;
 
 	@ManyToOne
-	@JoinColumn(name = "id_tipo")
-	private TipoIdentificacion tipoIdentificacion;
-
-	@Column(name = "identificacion")
-	private String identificacion;
-
-	@Column(name = "Nombres")
-	private String nombres;
-
-	@Column(name = "Apellidos")
-	private String apellidos;
-
-	@Column(name = "Telefono_Celular")
-	private String telefonoCelular;
-
-	@Column(name = "Direccion")
-	private String direccion;
-
-	@Column(name = "Email")
-	private String email;
-
-	@Column(name = "Estrato")
-	private String Estrato;
-
-	@ManyToOne
-	@JoinColumn(name = "id_departamento")
-	private Departamento departamento;
-
-	@ManyToOne
 	@JoinColumn(name = "id_plan")
 	private Plan plan;
 
-	@ManyToOne
-	@JoinColumn(name = "id_ciudad")
-	private Ciudad ciudad;
-
 	@Column(name = "fecha_contrato")
 	private Date fechaContrato;
+
+	@Column(name = "fecha_inicio_contrato")
+	private Date fechaInicioContrato;
+
 
 	public Long getId() {
 		return id;
@@ -72,92 +47,12 @@ public class ContratoCRC {
 		this.id = id;
 	}
 
-	public TipoIdentificacion getTipoIdentificacion() {
-		return tipoIdentificacion;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setTipoIdentificacion(TipoIdentificacion tipoIdentificacion) {
-		this.tipoIdentificacion = tipoIdentificacion;
-	}
-
-	public String getIdentificacion() {
-		return identificacion;
-	}
-
-	public void setIdentificacion(String identificacion) {
-		this.identificacion = identificacion;
-	}
-
-	public String getNombres() {
-		return nombres;
-	}
-
-	public void setNombres(String nombres) {
-		this.nombres = nombres;
-	}
-
-	public String getApellidos() {
-		return apellidos;
-	}
-
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
-
-	public String getTelefonoCelular() {
-		return telefonoCelular;
-	}
-
-	public void setTelefonoCelular(String telefonoCelular) {
-		this.telefonoCelular = telefonoCelular;
-	}
-
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Departamento getDepartamento() {
-		return departamento;
-	}
-
-	public void setDepartamento(Departamento departamento) {
-		this.departamento = departamento;
-	}
-
-	public Ciudad getCiudad() {
-		return ciudad;
-	}
-
-	public void setCiudad(Ciudad ciudad) {
-		this.ciudad = ciudad;
-	}
-
-	public Plan getPlan() {
-		return plan;
-	}
-
-	public void setPlan(Plan plan) {
-		this.plan = plan;
-	}
-
-	public String getEstrato() {
-		return Estrato;
-	}
-
-	public void setEstrato(String estrato) {
-		Estrato = estrato;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public Long getNumeroContrato() {
@@ -168,6 +63,13 @@ public class ContratoCRC {
 		this.numeroContrato = numeroContrato;
 	}
 
+	public Plan getPlan() {
+		return plan;
+	}
+
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
 
 	public Date getFechaContrato() {
 		return fechaContrato;
@@ -177,23 +79,25 @@ public class ContratoCRC {
 		this.fechaContrato = fechaContrato;
 	}
 
-	public ContratoCRC() {
+	public Date getFechaInicioContrato() {
+		return fechaInicioContrato;
 	}
 
-	public ContratoCRC(Long id, Long numeroContrato, TipoIdentificacion tipoIdentificacion, String identificacion, String nombres, String apellidos, String telefonoCelular, String direccion, String email, String estrato, Departamento departamento, Plan plan, Ciudad ciudad, Date fechaContrato) {
+	public void setFechaInicioContrato(Date fechaInicioContrato) {
+		this.fechaInicioContrato = fechaInicioContrato;
+	}
+
+	public ContratoCRC(Long id, Cliente cliente, Long numeroContrato, Plan plan, Date fechaContrato, Date fechaInicioContrato) {
 		this.id = id;
+		this.cliente = cliente;
 		this.numeroContrato = numeroContrato;
-		this.tipoIdentificacion = tipoIdentificacion;
-		this.identificacion = identificacion;
-		this.nombres = nombres;
-		this.apellidos = apellidos;
-		this.telefonoCelular = telefonoCelular;
-		this.direccion = direccion;
-		this.email = email;
-		Estrato = estrato;
-		this.departamento = departamento;
 		this.plan = plan;
-		this.ciudad = ciudad;
 		this.fechaContrato = fechaContrato;
+		this.fechaInicioContrato = fechaInicioContrato;
+	}
+
+	public ContratoCRC() {
 	}
 }
+
+
