@@ -24,19 +24,12 @@ public class ContratoCRCImplementacion implements  IContratoCRC{
     public ContratoCRC crearContratoCRC(ContratoCrcDTO contratocrcdto) {
 
         ContratoCRC contrato = new ContratoCRC();
+
+        contrato.setCliente(contratocrcdto.getCliente());
         contrato.setNumeroContrato(contratocrcdto.getNumeroContrato());
-        contrato.setNombres(contratocrcdto.getNombres());
-        contrato.setApellidos(contratocrcdto.getApellidos());
-        contrato.setTipoIdentificacion(contratocrcdto.getTipoIdentificacion());
-        contrato.setIdentificacion(contratocrcdto.getIdentificacion());
-        contrato.setEmail(contratocrcdto.getEmail());
-        contrato.setCiudad(contratocrcdto.getCiudad());
-        contrato.setDepartamento(contratocrcdto.getDepartamento());
         contrato.setPlan(contratocrcdto.getPlan());
-        contrato.setDireccion(contratocrcdto.getDireccion());
-        contrato.setTelefonoCelular(contratocrcdto.getTelefonoCelular());
-        contrato.setEstrato(contratocrcdto.getEstrato());
         contrato.setFechaContrato(new Timestamp(new Date().getTime()));
+
         return repoContrato.save(contrato);
     }
 
@@ -45,19 +38,10 @@ public class ContratoCRCImplementacion implements  IContratoCRC{
 
 
         ContratoCRC contrato = new ContratoCRC();
+
         contrato.setId(id);
         contrato.setNumeroContrato(contratocrcdto.getNumeroContrato());
-        contrato.setNombres(contratocrcdto.getNombres());
-        contrato.setApellidos(contratocrcdto.getApellidos());
-        contrato.setTipoIdentificacion(contratocrcdto.getTipoIdentificacion());
-        contrato.setIdentificacion(contratocrcdto.getIdentificacion());
-        contrato.setEmail(contratocrcdto.getEmail());
-        contrato.setCiudad(contratocrcdto.getCiudad());
-        contrato.setDepartamento(contratocrcdto.getDepartamento());
         contrato.setPlan(contratocrcdto.getPlan());
-        contrato.setDireccion(contratocrcdto.getDireccion());
-        contrato.setTelefonoCelular(contratocrcdto.getTelefonoCelular());
-        contrato.setEstrato(contratocrcdto.getEstrato());
         contrato.setFechaContrato((new Date()));
 
         return repoContrato.save(contrato);
