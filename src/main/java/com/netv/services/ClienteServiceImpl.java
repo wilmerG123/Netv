@@ -22,6 +22,10 @@ public class ClienteServiceImpl implements  IClienteService{
 
         Cliente cliente = new Cliente();
 
+        if(clienteDTO.getIdCliente() != null ){
+            cliente.setIdCliente(clienteDTO.getIdCliente());
+        }
+
         cliente.setNombres(clienteDTO.getNombres());
         cliente.setApellidos(clienteDTO.getApellidos());
         cliente.setTipoIdentificacion(clienteDTO.getTipoIdentificacion());

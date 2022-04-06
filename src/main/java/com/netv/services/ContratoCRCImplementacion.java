@@ -25,6 +25,10 @@ public class ContratoCRCImplementacion implements  IContratoCRC{
 
         ContratoCRC contrato = new ContratoCRC();
 
+        if(contratocrcdto.getId() != null ){
+            contrato.setId(contratocrcdto.getId());
+        }
+
         contrato.setCliente(contratocrcdto.getCliente());
         contrato.setNumeroContrato(contratocrcdto.getNumeroContrato());
         contrato.setPlan(contratocrcdto.getPlan());
@@ -39,7 +43,10 @@ public class ContratoCRCImplementacion implements  IContratoCRC{
 
         ContratoCRC contrato = new ContratoCRC();
 
-        contrato.setId(id);
+        if(contratocrcdto.getId() != null ){
+            contratocrcdto.setId(contratocrcdto.getId());
+        }
+
         contrato.setNumeroContrato(contratocrcdto.getNumeroContrato());
         contrato.setPlan(contratocrcdto.getPlan());
         contrato.setFechaContrato((new Date()));
