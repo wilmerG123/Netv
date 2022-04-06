@@ -21,6 +21,10 @@ public class PlanesImplementacion implements IPlanes{
 
         Plan plan = new Plan();
 
+        if(plandto.getId_plan() != null ){
+            plan.setId_plan(plandto.getId_plan());
+        }
+
         plan.setNombre(plandto.getNombre());
         plan.setDescripcion(plandto.getDescripcion());
         plan.setValor(plandto.getValor());
@@ -32,7 +36,9 @@ public class PlanesImplementacion implements IPlanes{
     public Plan actualizarPlan(PlanDTO plandto, Long id) {
         Plan plan = new Plan();
 
-        plan.setId_plan(id);
+        if(plandto.getId_plan() != null ){
+            plan.setId_plan(plandto.getId_plan());
+        }
         plan.setNombre(plandto.getNombre());
         plan.setDescripcion(plandto.getDescripcion());
         plan.setValor(plandto.getValor());

@@ -4,6 +4,8 @@ import com.netv.model.*;
 
 public class ContratoCrcDTO {
 
+    private Long id;
+
     private Cliente cliente;
 
     private Long numeroContrato;
@@ -34,12 +36,11 @@ public class ContratoCrcDTO {
         this.plan = plan;
     }
 
-    public ContratoCrcDTO(Cliente cliente, Long numeroContrato, Plan plan) {
-        this.cliente = cliente;
-        this.numeroContrato = numeroContrato;
-        this.plan = plan;
+    public Long getId() {
+        return id;
     }
 
-    public ContratoCrcDTO() {
+    public void setId(Long id) {
+        this.id = id;
     }
 }

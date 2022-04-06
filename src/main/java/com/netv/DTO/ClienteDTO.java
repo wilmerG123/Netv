@@ -6,6 +6,8 @@ import com.netv.model.TipoIdentificacion;
 
 public class ClienteDTO {
 
+    private Long idCliente;
+
     private String nombres;
 
     private String apellidos;
@@ -106,7 +108,16 @@ public class ClienteDTO {
         this.ciudad = ciudad;
     }
 
-    public ClienteDTO(String nombres, String apellidos, TipoIdentificacion tipoIdentificacion, String identificacion, String email, String telefonoCelular, String direccion, String estrato, Departamento departamento, Ciudad ciudad) {
+    public Long getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public ClienteDTO(Long idCliente, String nombres, String apellidos, TipoIdentificacion tipoIdentificacion, String identificacion, String email, String telefonoCelular, String direccion, String estrato, Departamento departamento, Ciudad ciudad) {
+        this.idCliente = idCliente;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.tipoIdentificacion = tipoIdentificacion;
